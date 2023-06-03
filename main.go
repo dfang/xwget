@@ -34,6 +34,18 @@ func main() {
 		if strings.Contains(args[i], "https://github.com") {
 			args[i] = strings.Replace(args[i], "https://github.com", "https://ghproxy.com/https://github.com", -1)
 		}
+		
+		if strings.Contains(args[i], "https://raw.githubusercontent.com") {
+			args[i] = strings.Replace(args[i], "https://raw.githubusercontent.com", "https://ghproxy.com/https://raw.githubusercontent.com", -1)
+		}
+
+		if strings.Contains(args[i], "https://gist.github.com") {
+			args[i] = strings.Replace(args[i], "https://gist.github.com", "https://ghproxy.com/https://gist.github.com", -1)
+		}
+
+		if strings.Contains(args[i], "https://gist.githubusercontent.com") {
+			args[i] = strings.Replace(args[i], "https://gist.githubusercontent.com", "https://ghproxy.com/https://gist.githubusercontent.com", -1)
+		}
 	}
 	execShell("wget", args[1:])
 }
